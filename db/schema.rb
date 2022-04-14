@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_14_230106) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_14_230726) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "strains", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "terpene"
+    t.integer "thc_amount"
+    t.integer "cbd_amount"
+    t.integer "cbg_amount"
+    t.bigint "type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type_id"], name: "index_strains_on_type_id"
+  end
 
   create_table "types", force: :cascade do |t|
     t.string "name"
@@ -20,4 +33,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_14_230106) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "strains", "types"
 end
