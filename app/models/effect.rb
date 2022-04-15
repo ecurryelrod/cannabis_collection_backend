@@ -1,3 +1,4 @@
 class Effect < ApplicationRecord
-    has_many :strains
+    has_many :strain_effects
+    has_many :strains, through: :strain_effects
 end
