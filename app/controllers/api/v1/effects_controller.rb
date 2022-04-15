@@ -1,4 +1,4 @@
-class EffectsController < ApplicationController
+class Api::V1::EffectsController < ApplicationController
   before_action :set_effect, only: %i[ show update destroy ]
 
   # GET /effects

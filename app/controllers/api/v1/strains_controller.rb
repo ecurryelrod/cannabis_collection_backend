@@ -1,4 +1,4 @@
-class StrainsController < ApplicationController
+class Api::V1::StrainsController < ApplicationController
   before_action :set_strain, only: %i[ show update destroy ]
 
   # GET /strains
