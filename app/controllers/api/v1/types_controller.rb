@@ -4,11 +4,13 @@ class Api::V1::TypesController < ApplicationController
   def index
     @types = Type.all
 
-    render json: @types
+    render json: TypeSerializer.new(@types)
+    # render json: @types
   end
 
   def show
-    render json: @type
+    render json: TypeSerializer.new(@type)
+    # render json: @type
   end
 
   private

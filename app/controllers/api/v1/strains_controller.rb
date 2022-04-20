@@ -4,11 +4,13 @@ class Api::V1::StrainsController < ApplicationController
   def index
     @strains = Strain.all
 
-    render json: @strains
+    render json: StrainSerializer.new(@strains)
+    # render json: @strains
   end
 
   def show
-    render json: @strain
+    render json: StrainSerializer.new(@strain)
+    # render json: @strain
   end
 
   def create

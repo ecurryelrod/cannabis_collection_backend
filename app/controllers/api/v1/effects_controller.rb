@@ -4,7 +4,8 @@ class Api::V1::EffectsController < ApplicationController
   def index
     @effects = Effect.all
 
-    render json: @effects
+    render json: EffectSerializer.new(@effects)
+    # render json: @effects
   end
 
   def show
