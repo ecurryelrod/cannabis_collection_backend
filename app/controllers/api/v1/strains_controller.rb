@@ -15,9 +15,13 @@ class Api::V1::StrainsController < ApplicationController
 
   def create
     @strain = Strain.new(strain_params)
+    # effect_ids gotten from createStrain action, sendableData variable.
+    # by setting strain.effect_ids = to params[:effect_ids],
+    # able to add effects to @strain.effects array due to model associations/join table.
+    @strain.effect_ids = params[:effect_ids]
 
     if @strain.save
-      render json: @strain, status: :created, location: @strain
+      render json: StrainSerializer.new(@strain), status: :created
     else
       render json: @strain.errors, status: :unprocessable_entity
     end
