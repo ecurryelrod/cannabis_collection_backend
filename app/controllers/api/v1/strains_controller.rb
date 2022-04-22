@@ -29,13 +29,17 @@ class Api::V1::StrainsController < ApplicationController
 
   def update
     if @strain.update(strain_params)
-      render json: @strain
+      render json: StrainSerializer.new(@strain)
     else
       render json: @strain.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
+    # need to delete all join table associations before @strain object can be deleted
+    StrainEffect.all.where(strain_id: @strain.id).each do |strain|
+      strain.destroy
+    end
     @strain.destroy
   end
 
