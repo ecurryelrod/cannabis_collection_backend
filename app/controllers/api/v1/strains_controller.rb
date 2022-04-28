@@ -28,6 +28,8 @@ class Api::V1::StrainsController < ApplicationController
   end
 
   def update
+    @strain.effect_ids = params[:effect_ids]
+
     if @strain.update(strain_params)
       render json: StrainSerializer.new(@strain)
     else
