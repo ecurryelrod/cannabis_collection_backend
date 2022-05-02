@@ -1,4 +1,4 @@
-# Cannabis Collection
+# Cannabis Collection Backend
 
 Ruby Version 2.7.4
 Rails Version 7.0.2
