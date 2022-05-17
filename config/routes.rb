@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :effects
       resources :strains
       resources :types
+      resources :users
     end
   end
   
