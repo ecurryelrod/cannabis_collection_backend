@@ -5,7 +5,7 @@
 class UserSerializer
   include JSONAPI::Serializer
 
-  attributes :email
+  attributes :email, :name
   # has_many :strains
 
   attribute :strains do |type|
