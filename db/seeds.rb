@@ -28,3 +28,7 @@ Effect.create(name: 'Sleepy')
 Effect.create(name: 'Talkative')
 Effect.create(name: 'Tingly')
 Effect.create(name: 'Uplifted')
+
+u = User.create(name: 'Test', email: 'test@test.com', password: 'password')
+
+u.strains.create(name: 'Purple Haze', type_id: 2, description: 'Super heady. Took me on a wild ride. I thought I was a unicorn with magic.', terpene: 'Cotton candy and chocolate notes', thc_amount: 30, cbd_amount: 0, cbg_amount:0, effect_ids: [2, 6, 13, 16, 17])
