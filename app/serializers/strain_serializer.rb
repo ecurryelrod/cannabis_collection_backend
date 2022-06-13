@@ -26,5 +26,13 @@ class StrainSerializer
         }
     end
   end
+
+  attribute :user do |strain|
+    {
+      id: strain.user.id,
+      name: strain.user.name,
+      email: strain.user.email
+    }
+  end
 end
 
