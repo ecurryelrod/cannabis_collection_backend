@@ -31,7 +31,7 @@ class Api::V1::StrainsController < ApplicationController
     if @strain.save
       render json: StrainSerializer.new(@strain), status: :created
     else
-      render json: @strain.errors, status: :unprocessable_entity
+      render json: {error: @strain.errors.full_messages.to_sentence}, status: :unprocessable_entity
     end
   end
 
