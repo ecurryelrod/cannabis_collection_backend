@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         if logged_in?
             render json: UserSerializer.new(current_user)
         else
-            render json: {alert: 'Please login to continue'}
+            render json: {error: 'Please login to continue'}
         end
     end
 
