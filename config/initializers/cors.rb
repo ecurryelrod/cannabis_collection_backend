@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "https://cannabis-collection.herokuapp.com"
+    origins "http://localhost:3000/cannabis_collection_frontend"
 
     resource "*",
       headers: :any,
